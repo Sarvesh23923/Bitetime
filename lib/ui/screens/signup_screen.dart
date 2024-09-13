@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
-import 'package:bitetime/components/constants.dart';
+import 'package:bitetime/models/constants.dart';
+import 'package:bitetime/models/titles.dart';
 import 'package:bitetime/ui/screens/login_screen.dart';
+import 'package:bitetime/ui/screens/otp_screen.dart';
 import 'package:bitetime/ui/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -223,7 +225,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.015),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => OtpScreen()));
+                  },
                   child: Container(
                     width: screenWidth * 0.75,
                     height: screenHeight * 0.06,
@@ -244,7 +249,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(width: screenWidth * 0.14),
+                        SizedBox(width: screenWidth * 0.12),
                         CircleAvatar(
                           radius: 20,
                           backgroundColor: Colors.white,
@@ -257,36 +262,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.03),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Already have an account?",
-                      style: GoogleFonts.roboto(
-                        fontSize: screenWidth * 0.04,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Sign in",
-                        style: GoogleFonts.roboto(
-                          color: Color.fromARGB(255, 78, 173, 252),
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                rowText(
+                    text: "Already have an account?",
+                    buttonText: "Sign In",
+                    destination: LoginScreen())
               ],
             ),
           ),

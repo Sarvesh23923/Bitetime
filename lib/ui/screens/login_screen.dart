@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
-import 'package:bitetime/components/constants.dart';
+import 'package:bitetime/models/constants.dart';
+import 'package:bitetime/models/titles.dart';
 import 'package:bitetime/ui/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,12 +19,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // State variable to track password visibility
   bool _isPasswordVisible = false;
 
   @override
   void dispose() {
-    // Dispose controllers when the widget is disposed
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -31,7 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Screen dimensions
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -56,7 +54,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Email / College Mail ID Field
                 Text(
                   "Name / College mail ID",
                   style: GoogleFonts.roboto(
@@ -82,7 +79,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
-
                 Text(
                   "Password",
                   style: GoogleFonts.roboto(
@@ -121,7 +117,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     prefixIcon: Icon(Icons.lock),
                   ),
                 ),
-
                 Container(
                   padding: EdgeInsets.only(left: screenWidth * 0.5),
                   child: TextButton(
@@ -137,7 +132,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.015),
-
                 GestureDetector(
                   onTap: () {},
                   child: Container(
@@ -173,37 +167,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.03),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style: GoogleFonts.roboto(
-                        fontSize: screenWidth * 0.04,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignUpScreen(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Sign up",
-                        style: GoogleFonts.roboto(
-                          color: Color.fromARGB(255, 78, 173, 252),
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                rowText(
+                    text: "Don't have an account?",
+                    buttonText: "Sign Up",
+                    destination: SignUpScreen())
               ],
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 
 import '../ui/screens/login_screen.dart';
@@ -42,6 +41,41 @@ class userButton extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 )),
           )),
+    );
+  }
+}
+
+class button extends StatelessWidget {
+  const button({
+    super.key,
+    required this.label,
+    required this.destination,
+  });
+
+  final String label;
+  final Widget destination;
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => destination));
+      },
+      child: Container(
+        width: screenWidth * 0.75,
+        height: screenHeight * 0.06,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+            gradient: primaryColor, borderRadius: BorderRadius.circular(50)),
+        child: Center(
+          child: Text(label,
+              style: GoogleFonts.roboto(
+                  fontSize: screenWidth * 0.06, fontWeight: FontWeight.bold)),
+        ),
+      ),
     );
   }
 }

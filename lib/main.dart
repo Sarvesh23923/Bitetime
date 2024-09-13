@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bitetime/ui/screens/login_screen.dart';
-import 'package:bitetime/ui/screens/onboard_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

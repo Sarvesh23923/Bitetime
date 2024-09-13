@@ -1,10 +1,11 @@
 // ignore_for_file: use_super_parameters
 
-import 'package:bitetime/components/constants.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:bitetime/models/constants.dart';
 import 'package:bitetime/ui/sheets/onboard_data.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'userselection_screen.dart';
 
 class OnboardScreen extends StatefulWidget {
